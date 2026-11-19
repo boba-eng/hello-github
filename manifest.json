@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "电子科大课程续播助手",
+  "version": "0.4.4",
+  "description": "在电子科技大学在线培训的课程中心按顺序连播视频，并支持后台播放和倍速。",
+  "content_scripts": [
+    {
+      "matches": ["https://dxpx.uestc.edu.cn/jjfz/play*"],
+      "js": ["player-bridge.js"],
+      "run_at": "document_idle",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://dxpx.uestc.edu.cn/jjfz/play*"],
+      "js": ["catalog.js", "course.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://dxpx.uestc.edu.cn/jjfz/lesson*"],
+      "js": ["catalog.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
